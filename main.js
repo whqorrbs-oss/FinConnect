@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let response = "죄송해요, 아직 학습 중인 내용입니다. '공부', '금리', '한도', '입문' 등에 대해 물어봐 주시겠어요?";
     
     if (userText.includes('공부')) {
-      response = "대출 공부는 '입문'과 '실무' 과정으로 나뉩니다. 상단 메뉴에서 선택하시거나 궁금한 단계를 말씀해 주세요.";
+      response = "대출 공부는 '입문'과 '실무' 과정으로 나뉩니다. BK Loan Assistant AI 상단 메뉴에서 선택하시거나 궁금한 단계를 말씀해 주세요.";
     } else if (userText.includes('입문')) {
       response = "입문 과정에서는 대출의 기초 용어와 신용 점수 관리법을 배우게 됩니다. 지금 바로 '대출 공부하기 > 입문' 메뉴를 확인해 보세요!";
     } else if (userText.includes('금리')) {
