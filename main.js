@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const typingIndicator = showTypingIndicator();
     
     try {
-      // 본인의 서브도메인을 확인하여 수정하세요.
       const WORKER_URL = "https://silent-hat-8bd1.qorrbszz.workers.dev";
 
       const response = await fetch(WORKER_URL, {
@@ -77,7 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({ messages: messageHistory })
       });
 
-      if (!response.ok) throw new Error("API 요청 실패");
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.content || "API 요청 실패");
+      }
 
       const data = await response.json();
       const aiText = data.content;
@@ -88,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       typingIndicator.remove();
       console.error("Error:", error);
-      addMessage("죄송합니다. 현재 AI 답변 서비스에 연결할 수 없습니다. 잠시 후 다시 시도해주세요.", 'bot');
+      addMessage("죄송합니다. 서비스에 일시적인 오류가 발생했습니다: " + error.message, 'bot');
     }
   }
 
