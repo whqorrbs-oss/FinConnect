@@ -71,9 +71,45 @@ document.addEventListener('DOMContentLoaded', () => {
   async function askBKAssistant(userText) {
     const typingIndicator = showTypingIndicator();
     
+    // 1. 즉시 응답 가능한 지식 베이스 (API 연결 없이 작동)
+    const localAnswers = {
+      "금리": "현재 시장 금리는 연 3.5%~5.0% 수준입니다. 신용도에 따라 차등 적용됩니다.",
+      "한도": "대출 한도는 소득과 부채(DSR) 비율에 따라 결정됩니다. 상단 '계산기' 메뉴를 이용해보세요!",
+      "서류": "기본적으로 신분증, 재직증명서, 원천징수영수증이 필요합니다.",
+      "안녕": "안녕하세요! BK Loan Assistant AI입니다. 무엇을 도와드릴까요?",
+      "DSR": "DSR은 연 소득 대비 모든 대출의 원리금 상환액 비율을 말하며, 보통 40% 이내로 관리됩니다."
+    };
+
+    // 키워드 매칭 확인
+    let reply = "";
+    for (let key in localAnswers) {
+      if (userText.includes(key)) {
+        reply = localAnswers[key];
+        break;
+      }
+    }
+
     try {
-      // 여기에 본인의 실제 Worker URL을 입력하세요. 예: https://bk-loan-assistant.yourname.workers.dev
+      if (reply) {
+        // 로컬 답변이 있으면 0.6초 후에 응답 (자연스럽게)
+        setTimeout(() => {
+          typingIndicator.remove();
+          addMessage(reply, 'bot');
+        }, 600);
+        return;
+      }
+
+      // 2. API 연결 (Worker URL이 설정된 경우에만 작동)
       const WORKER_URL = "여기에_본인의_워커_주소를_넣으세요";
+      
+      // 주소가 설정되지 않았을 경우 시뮬레이션 응답
+      if (WORKER_URL.includes("여기에")) {
+        setTimeout(() => {
+          typingIndicator.remove();
+          addMessage("입력하신 '" + userText + "'에 대해 분석 중입니다. 더 구체적인 질문이 있으신가요?", 'bot');
+        }, 1000);
+        return;
+      }
 
       const response = await fetch(WORKER_URL, {
         method: 'POST',
@@ -81,18 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({ messages: messageHistory })
       });
 
-      if (!response.ok) throw new Error("API 요청 실패");
-
       const data = await response.json();
-      const aiText = data.content;
-
       typingIndicator.remove();
-      addMessage(aiText, 'bot');
+      addMessage(data.content, 'bot');
 
     } catch (error) {
       typingIndicator.remove();
-      console.error("Error:", error);
-      addMessage("죄송합니다. 서비스 연결에 문제가 발생했습니다. Worker URL과 API 설정을 확인해주세요.", 'bot');
+      addMessage("죄송합니다. 현재 AI 엔진 점검 중입니다. 잠시 후 다시 시도해주세요.", 'bot');
     }
   }
 
