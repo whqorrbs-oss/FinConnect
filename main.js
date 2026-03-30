@@ -1,4 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- View Switching Logic ---
+  const pages = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('.nav-menu a, .logo a');
+
+  function showPage(targetId) {
+    // Remove # if present
+    const id = targetId.startsWith('#') ? targetId.substring(1) : targetId;
+    
+    // Find the actual page section. For sub-sections like #study-intro, we show the parent #study page.
+    let targetPage = document.getElementById(id);
+    if (id.startsWith('study-')) {
+      targetPage = document.getElementById('study');
+    }
+
+    if (targetPage && targetPage.classList.contains('page')) {
+      pages.forEach(p => p.classList.remove('active'));
+      targetPage.classList.add('active');
+      
+      // If it's a sub-section, scroll to it
+      if (id.startsWith('study-')) {
+        const subSection = document.getElementById(id);
+        if (subSection) {
+          window.scrollTo({
+            top: subSection.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        showPage(href);
+      }
+    });
+  });
+
+  // Handle initial hash
+  if (window.location.hash) {
+    showPage(window.location.hash);
+  }
+
   // --- Chat Logic ---
   const chatMessages = document.getElementById('chat-messages');
   const chatInput = document.getElementById('chat-input');
@@ -8,29 +56,25 @@ document.addEventListener('DOMContentLoaded', () => {
   function addMessage(text, sender) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', sender);
-    
     const bubble = document.createElement('div');
     bubble.classList.add('bubble');
     bubble.textContent = text;
-    
     messageDiv.appendChild(bubble);
     chatMessages.appendChild(messageDiv);
-    
-    // Scroll to bottom
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
   function simulateResponse(userText) {
-    let response = "죄송해요, 아직 학습 중인 내용입니다. '금리', '한도', '서류' 등에 대해 물어봐 주시겠어요?";
+    let response = "죄송해요, 아직 학습 중인 내용입니다. '공부', '금리', '한도', '입문' 등에 대해 물어봐 주시겠어요?";
     
-    if (userText.includes('금리')) {
-      response = "현재 시중 은행의 평균 금리는 연 3.5% ~ 5.2% 수준입니다. 신용 점수에 따라 차등 적용될 수 있으니 상세 가이드를 확인해 보세요.";
-    } else if (userText.includes('한도')) {
-      response = "대출 한도는 DSR(총부채원리금상환비율) 규제에 따라 연 소득과 부채 상황에 맞춰 결정됩니다.";
+    if (userText.includes('공부')) {
+      response = "대출 공부는 '입문'과 '실무' 과정으로 나뉩니다. 상단 메뉴에서 선택하시거나 궁금한 단계를 말씀해 주세요.";
+    } else if (userText.includes('입문')) {
+      response = "입문 과정에서는 대출의 기초 용어와 신용 점수 관리법을 배우게 됩니다. 지금 바로 '대출 공부하기 > 입문' 메뉴를 확인해 보세요!";
+    } else if (userText.includes('금리')) {
+      response = "현재 시장 금리는 변동성이 큽니다. 정확한 금리 정보는 '참고자료' 섹션의 보고서를 참고하시거나 은행 상담을 추천드립니다.";
     } else if (userText.includes('서류')) {
-      response = "기본적으로 신분증, 재직증명서, 원천징수영수증이 필요합니다. 담보대출의 경우 등기권리증이 추가로 필요할 수 있습니다.";
-    } else if (userText.includes('DSR')) {
-      response = "DSR은 연간 소득 대비 모든 대출의 원리금 상환액 비율을 말합니다. 현재 대부분 40% 이내로 제한되고 있습니다.";
+      response = "대출 신청 시 신분증, 소득증빙서류, 재직증명서가 기본입니다. 비대면 대출의 경우 공동인증서로 자동 제출되기도 합니다.";
     }
 
     setTimeout(() => {
@@ -47,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  sendBtn.addEventListener('click', handleSend);
-  chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') handleSend();
-  });
+  if (sendBtn) {
+    sendBtn.addEventListener('click', handleSend);
+    chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
+  }
 
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -90,20 +134,4 @@ document.addEventListener('DOMContentLoaded', () => {
       resultBox.classList.remove('hidden');
     });
   }
-
-  // --- Navigation Smooth Scroll ---
-  document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 70,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
 });

@@ -12,9 +12,15 @@
 <body>
   <header>
     <nav class="container">
-      <div class="logo">LoanGuide</div>
-      <ul>
-        <li><a href="#guide">대출 상세가이드</a></li>
+      <div class="logo"><a href="#home">LoanGuide</a></div>
+      <ul class="nav-menu">
+        <li class="has-dropdown">
+          <a href="#study">대출 공부하기</a>
+          <ul class="dropdown">
+            <li><a href="#study-intro">입문</a></li>
+            <li><a href="#study-practice">실무</a></li>
+          </ul>
+        </li>
         <li><a href="#references">참고자료</a></li>
         <li><a href="#calculator">대출 계산기</a></li>
         <li><a href="#faq">자주 묻는 질문</a></li>
@@ -23,8 +29,8 @@
   </header>
 
   <main>
-    <!-- Chat Interface Section -->
-    <section id="chat-section">
+    <!-- Home / Chat Section (Default) -->
+    <section id="home" class="page active">
       <div class="container chat-wrapper">
         <div class="chat-header">
           <h2>💬 대출 상담 챗봇</h2>
@@ -32,39 +38,54 @@
         </div>
         <div id="chat-messages" class="chat-messages">
           <div class="message bot">
-            <div class="bubble">안녕하세요! LoanGuide 스마트 도우미입니다. 대출 상품, 금리, 한도 등 궁금하신 점을 말씀해 주세요.</div>
+            <div class="bubble">안녕하세요! LoanGuide 스마트 도우미입니다. 대출 공부, 금리, 한도 등 궁금하신 점을 말씀해 주세요.</div>
           </div>
-          <!-- Messages will be appended here -->
         </div>
         <div class="chat-input-area">
           <input type="text" id="chat-input" placeholder="메시지를 입력하세요 (예: DSR 계산법 알려줘)">
           <button id="send-btn" class="btn primary">전송</button>
         </div>
         <div class="quick-chips">
-          <button class="chip">내 한도 확인</button>
+          <button class="chip">대출 공부 입문</button>
           <button class="chip">최신 금리 정보</button>
           <button class="chip">필요 서류 안내</button>
         </div>
       </div>
     </section>
 
-    <!-- Detailed Guide Section -->
-    <section id="guide" class="container">
-      <h2 class="section-title">대출 상세가이드</h2>
-      <div class="guide-grid">
-        <div class="guide-card">
-          <h4>신용대출 가이드</h4>
-          <p>재직 기간, 소득 수준에 따른 한도 산출 방식 및 금리 우대 항목을 상세히 안내합니다.</p>
+    <!-- Study Section (Intro/Practice) -->
+    <section id="study" class="page container">
+      <h2 class="section-title">대출 공부하기</h2>
+      <div id="study-intro" class="sub-section">
+        <h3>🌱 입문 과정</h3>
+        <div class="guide-grid">
+          <div class="guide-card">
+            <h4>대출의 기초</h4>
+            <p>원금, 이자, 금리의 개념부터 담보와 신용의 차이까지 초보자를 위한 핵심 요약을 제공합니다.</p>
+          </div>
+          <div class="guide-card">
+            <h4>신용 점수 관리</h4>
+            <p>대출 한도에 결정적인 영향을 미치는 신용 점수 올리는 법과 관리 노하우를 공개합니다.</p>
+          </div>
         </div>
-        <div class="guide-card">
-          <h4>담보대출 가이드</h4>
-          <p>주택 유형별 LTV/DTI 기준 및 특례보금자리론 등 정책 금융 상품 가이드를 제공합니다.</p>
+      </div>
+      <div id="study-practice" class="sub-section mt-50">
+        <h3>🚀 실무 과정</h3>
+        <div class="guide-grid">
+          <div class="guide-card">
+            <h4>DSR/LTV 심화</h4>
+            <p>실제 대출 승인에 필요한 규제 비율을 직접 계산하고 케이스별 전략을 세워봅니다.</p>
+          </div>
+          <div class="guide-card">
+            <h4>금리 우대 전략</h4>
+            <p>은행별 부수거래 조건과 정부 정책 상품을 결합하여 최저 금리를 받는 실무 팁을 안내합니다.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Reference Materials Section -->
-    <section id="references" class="bg-gray">
+    <section id="references" class="page bg-gray">
       <div class="container">
         <h2 class="section-title">참고자료</h2>
         <div class="ref-list">
@@ -87,7 +108,7 @@
     </section>
 
     <!-- Calculator Section -->
-    <section id="calculator" class="container">
+    <section id="calculator" class="page container">
       <div class="calc-box">
         <h2 class="section-title">간편 대출 계산기</h2>
         <p class="calc-desc">월 상환액을 미리 계산해 보세요. (원리금균등상환 방식)</p>
@@ -114,7 +135,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="container">
+    <section id="faq" class="page container">
       <h2 class="section-title">자주 묻는 질문</h2>
       <div class="faq-list">
         <details>
