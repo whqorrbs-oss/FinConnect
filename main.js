@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     try {
       // 본인의 서브도메인을 확인하여 수정하세요.
-      const WORKER_URL = "https://silent-hat-8bd1.여기에_본인의_서브도메인을_넣으세요.workers.dev";
+      const WORKER_URL = "https://silent-hat-8bd1.qorrbszz.workers.dev";
 
       const response = await fetch(WORKER_URL, {
         method: 'POST',
