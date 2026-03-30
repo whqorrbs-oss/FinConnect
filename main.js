@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = targetId.startsWith('#') ? targetId.substring(1) : targetId;
     let targetPage = document.getElementById(id);
     
-    // 네비게이션 매핑
     if (id === 'study' || id === 'study-intro' || id === 'study-practice') {
       targetPage = document.getElementById('study');
     }
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Handle initial hash
   if (window.location.hash) {
     showPage(window.location.hash);
   }
@@ -40,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const sendBtn = document.getElementById('send-btn');
   const chips = document.querySelectorAll('.chip');
   
-  // 대화 기록 저장 (ChatGPT API 연동용)
   let messageHistory = [
     { role: "assistant", content: "안녕하세요! BK Loan Assistant AI 스마트 도우미입니다. 무엇을 도와드릴까요?" }
   ];
@@ -55,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
     
-    // 기록 업데이트
     messageHistory.push({ role: sender === 'bot' ? 'assistant' : 'user', content: text });
   }
 
@@ -71,45 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
   async function askBKAssistant(userText) {
     const typingIndicator = showTypingIndicator();
     
-    // 1. 즉시 응답 가능한 지식 베이스 (API 연결 없이 작동)
-    const localAnswers = {
-      "금리": "현재 시장 금리는 연 3.5%~5.0% 수준입니다. 신용도에 따라 차등 적용됩니다.",
-      "한도": "대출 한도는 소득과 부채(DSR) 비율에 따라 결정됩니다. 상단 '계산기' 메뉴를 이용해보세요!",
-      "서류": "기본적으로 신분증, 재직증명서, 원천징수영수증이 필요합니다.",
-      "안녕": "안녕하세요! BK Loan Assistant AI입니다. 무엇을 도와드릴까요?",
-      "DSR": "DSR은 연 소득 대비 모든 대출의 원리금 상환액 비율을 말하며, 보통 40% 이내로 관리됩니다."
-    };
-
-    // 키워드 매칭 확인
-    let reply = "";
-    for (let key in localAnswers) {
-      if (userText.includes(key)) {
-        reply = localAnswers[key];
-        break;
-      }
-    }
-
     try {
-      if (reply) {
-        // 로컬 답변이 있으면 0.6초 후에 응답 (자연스럽게)
-        setTimeout(() => {
-          typingIndicator.remove();
-          addMessage(reply, 'bot');
-        }, 600);
-        return;
-      }
-
-      // 2. API 연결 (Worker URL이 설정된 경우에만 작동)
-      const WORKER_URL = "여기에_본인의_워커_주소를_넣으세요";
-      
-      // 주소가 설정되지 않았을 경우 시뮬레이션 응답
-      if (WORKER_URL.includes("여기에")) {
-        setTimeout(() => {
-          typingIndicator.remove();
-          addMessage("입력하신 '" + userText + "'에 대해 분석 중입니다. 더 구체적인 질문이 있으신가요?", 'bot');
-        }, 1000);
-        return;
-      }
+      // 본인의 서브도메인을 확인하여 수정하세요.
+      const WORKER_URL = "https://silent-hat-8bd1.여기에_본인의_서브도메인을_넣으세요.workers.dev";
 
       const response = await fetch(WORKER_URL, {
         method: 'POST',
@@ -117,13 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({ messages: messageHistory })
       });
 
+      if (!response.ok) throw new Error("API 요청 실패");
+
       const data = await response.json();
+      const aiText = data.content;
+
       typingIndicator.remove();
-      addMessage(data.content, 'bot');
+      addMessage(aiText, 'bot');
 
     } catch (error) {
       typingIndicator.remove();
-      addMessage("죄송합니다. 현재 AI 엔진 점검 중입니다. 잠시 후 다시 시도해주세요.", 'bot');
+      console.error("Error:", error);
+      addMessage("죄송합니다. 현재 AI 답변 서비스에 연결할 수 없습니다. 잠시 후 다시 시도해주세요.", 'bot');
     }
   }
 
