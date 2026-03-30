@@ -168,6 +168,27 @@ nav {
 .bot .bubble { background-color: var(--bot-bubble); border: 1px solid #eee; border-bottom-left-radius: 2px; }
 .user .bubble { background-color: var(--user-bubble); color: var(--white); border-bottom-right-radius: 2px; }
 
+/* Typing Indicator */
+.typing {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
 .chat-input-area { padding: 20px; background: var(--white); border-top: 1px solid #eee; display: flex; gap: 10px; }
 .chat-input-area input { flex: 1; padding: 12px 25px; border: 1px solid #ddd; border-radius: 30px; outline: none; }
 .quick-chips { padding: 0 20px 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; background: var(--white); }
