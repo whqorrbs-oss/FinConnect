@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>대출 공부 (실무) | BK Loan Assistant AI</title>
+  <title>부동산 계산기 | BK Loan Assistant AI</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,58 +15,44 @@
       <div class="logo"><a href="index.html">BK Loan Assistant AI</a></div>
       <ul class="nav-menu">
         <li><a href="intro.html">대출 공부 (입문)</a></li>
-        <li><a href="practice.html" class="active-link">대출 공부 (실무)</a></li>
+        <li><a href="practice.html">대출 공부 (실무)</a></li>
         <li><a href="index.html#references">참고자료</a></li>
         <li><a href="loan-calculator.html">대출 계산기</a></li>
         <li><a href="index.html#faq">FAQ</a></li>
-        <li><a href="real-estate-calculator.html">부동산 계산기</a></li>
+        <li><a href="real-estate-calculator.html" class="active-link">부동산 계산기</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="study-practice" class="page container active">
-      <h2 class="section-title">대출 공부하기 (실무)</h2>
+    <section id="re-calculator-section" class="page container active">
+      <h2 class="section-title">부동산 계산기</h2>
       
       <div class="section-header">
-        <h3>🚀 실무 과정: 전문가로 거듭나기</h3>
-        <p>실제 대출 심사 현장에서 쓰이는 심화 지식입니다.</p>
+        <h3>부동산 필수 계산기</h3>
+        <p>복잡한 부동산 세금과 중개보수를 간편하게 계산해 보세요.</p>
       </div>
 
-      <div class="guide-grid">
-        <div class="guide-card">
-          <div class="card-tag">ADVANCED</div>
-          <h4>DSR/LTV 심화 계산</h4>
-          <p>단순 계산을 넘어, 복합 대출 상황에서의 DSR 우회 전략과 LTV 산정 방식을 심층 분석합니다.</p>
-          <ul class="content-list">
-            <li>• 생애최초 주택구입자 LTV 완화</li>
-            <li>• DSR 산정 시 제외되는 대출 항목</li>
-          </ul>
-        </div>
+      <div class="calculator-embed-container">
+        <article class="calculator-item">
+          <h4>부동산 중개보수</h4>
+          <iframe src="https://부동산계산기.com/commission?embed=y" style="width:100%; height:720px; border:0;"></iframe>
+        </article>
+        
+        <article class="calculator-item">
+          <h4>취득세</h4>
+          <iframe src="https://부동산계산기.com/acquisition-tax?embed=y" style="width:100%; height:720px; border:0;"></iframe>
+        </article>
+        
+        <article class="calculator-item">
+          <h4>재산세</h4>
+          <iframe src="https://부동산계산기.com/property-tax?embed=y" style="width:100%; height:720px; border:0;"></iframe>
+        </article>
 
-        <div class="guide-card">
-          <div class="card-tag">STRATEGY</div>
-          <h4>금리 우대 및 협상 전략</h4>
-          <p>은행별 부수거래(급여이체, 카드사용 등)를 최적화하여 최저 금리를 이끌어내는 방법을 알아봅니다.</p>
-        </div>
-
-        <div class="guide-card">
-          <div class="card-tag">CASE STUDY</div>
-          <h4>부결 사유 분석 및 대응</h4>
-          <p>실제 부결 사례를 통해 원인을 파악하고, 보완 서류나 대안 상품을 찾는 능력을 키웁니다.</p>
-        </div>
-      </div>
-
-      <div class="study-details mt-30">
-        <div class="info-box">
-          <h5>💡 실무자를 위한 Tip</h5>
-          <p>최근 변경된 스트레스 DSR 규정을 반드시 확인하세요. 대출 한도가 생각보다 줄어들 수 있습니다.</p>
-        </div>
-      </div>
-
-      <div class="page-nav-btns mt-50">
-        <a href="intro.html" class="btn secondary">← 입문 과정 복습</a>
-        <a href="index.html" class="btn primary">홈으로</a>
+        <article class="calculator-item">
+          <h4>양도소득세</h4>
+          <iframe src="https://부동산계산기.com/capital-gains-tax?embed=y" style="width:100%; height:720px; border:0;"></iframe>
+        </article>
       </div>
     </section>
   </main>
