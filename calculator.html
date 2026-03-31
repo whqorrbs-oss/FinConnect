@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대출 계산기 | BK Loan Assistant AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo"><a href="index.html">BK Loan Assistant AI</a></div>
+      <ul class="nav-menu">
+        <li><a href="intro.html">대출 공부 (입문)</a></li>
+        <li><a href="practice.html">대출 공부 (실무)</a></li>
+        <li><a href="index.html#references">참고자료</a></li>
+        <li><a href="calculator.html" class="active-link">계산기</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="calculator-section" class="page container active">
+      <h2 class="section-title">대출 원리금 계산기</h2>
+      
+      <div class="calc-main-container">
+        <div class="calc-input-area">
+          <div class="input-group">
+            <label for="loan-amount">대출금액</label>
+            <div class="input-wrapper">
+              <input type="text" id="loan-amount" placeholder="예: 10,000,000">
+              <span>원</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="loan-term">대출기간</label>
+            <div class="input-wrapper">
+              <input type="number" id="loan-term" placeholder="예: 5" value="5">
+              <span>년</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="interest-rate">대출금리</label>
+            <div class="input-wrapper">
+              <input type="number" id="interest-rate" step="0.01" placeholder="예: 5.5" value="5.5">
+              <span>%</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>상환방식</label>
+            <div class="radio-group">
+              <label><input type="radio" name="repayment-method" value="equal-principal-interest" checked> 원리금균등</label>
+              <label><input type="radio" name="repayment-method" value="equal-principal"> 원금균등</label>
+              <label><input type="radio" name="repayment-method" value="bullet"> 만기일시</label>
+            </div>
+          </div>
+          <button id="calculate-btn" class="btn primary full-width">계산하기</button>
+        </div>
+
+        <div id="calc-result-area" class="calc-result-area" style="display: none;">
+          <div class="result-summary">
+            <div class="summary-item">
+              <span>매월 상환금</span>
+              <strong id="monthly-payment">0 원</strong>
+            </div>
+             <div class="summary-item total-interest">
+              <span>총 대출이자</span>
+              <strong id="total-interest">0 원</strong>
+            </div>
+            <div class="summary-item">
+              <span>총 상환금액</span>
+              <strong id="total-repayment">0 원</strong>
+            </div>
+          </div>
+          <div class="result-table-container">
+            <table id="repayment-schedule">
+              <thead>
+                <tr>
+                  <th>회차</th>
+                  <th>월 상환금</th>
+                  <th>대출원금</th>
+                  <th>이자</th>
+                  <th>대출잔금</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Schedule will be populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="logo">BK Loan Assistant AI</div>
+      <p>&copy; 2026 BK Loan Assistant AI. All rights reserved.<br>본 사이트는 정보 제공용이며 실제 대출은 신중히 검토하시기 바랍니다.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

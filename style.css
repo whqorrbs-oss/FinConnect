@@ -221,7 +221,7 @@ nav {
   text-align: center;
 }
 
-.guide-card, .ref-item, .calc-box, .faq-list details {
+.guide-card, .ref-item, .calc-box {
   background: var(--white);
   border-radius: 24px;
   padding: 28px;
@@ -308,10 +308,6 @@ nav {
   border-radius: 18px;
   padding: 24px;
 }
-
-.faq-list summary { font-size: 17px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-.faq-list summary::after { content: '↓'; color: var(--toss-gray-600); transition: 0.3s; }
-details[open] summary::after { transform: rotate(180deg); }
 
 footer { padding: 60px 0; background-color: var(--white); border-top: 1px solid var(--toss-gray-200); text-align: left; }
 footer .logo { margin-bottom: 12px; }
@@ -479,4 +475,79 @@ footer p { font-size: 13px; color: var(--toss-gray-600); }
     right: 20px;
     bottom: 90px;
   }
+}
+
+/* Accordion / FAQ List Refined */
+.faq-list {
+  max-width: 700px;
+  margin: 30px auto 0 auto; /* Give it some top margin */
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--toss-gray-200);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  overflow: hidden; /* Ensures child borders don't poke out */
+}
+
+.faq-list details {
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--toss-gray-100);
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.faq-list details:last-child {
+  border-bottom: none;
+}
+
+.faq-list summary {
+  position: relative; /* For icon positioning */
+  display: block; /* Change from flex to block to control children better */
+  padding: 20px 50px 20px 24px; /* Right padding for icon */
+  font-size: 16px; /* Slightly smaller for balance */
+  font-weight: 600;
+  color: var(--toss-gray-700);
+  cursor: pointer;
+  list-style: none; /* Remove default marker */
+  transition: background-color 0.2s ease;
+}
+
+.faq-list summary:hover {
+  background-color: var(--toss-gray-100);
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron Icon Styling */
+.faq-list summary::after {
+  content: '';
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  margin-top: -5px; /* (height/2) */
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--toss-gray-600);
+  border-bottom: 2px solid var(--toss-gray-600);
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+details[open] > summary {
+  color: var(--toss-blue);
+  font-weight: 700;
+}
+
+details[open] > summary::after {
+  transform: rotate(-135deg);
+}
+
+.faq-list details > p {
+  padding: 0 24px 24px 24px; /* Padding for the content */
+  font-size: 15px;
+  color: var(--toss-gray-700);
+  line-height: 1.65;
 }

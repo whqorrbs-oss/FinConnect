@@ -16,9 +16,9 @@
       <ul class="nav-menu">
         <li><a href="intro.html">대출 공부 (입문)</a></li>
         <li><a href="practice.html">대출 공부 (실무)</a></li>
-        <li><a href="index.html#references">참고자료</a></li>
-        <li><a href="index.html#calculator">계산기</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="#references">참고자료</a></li>
+        <li><a href="calculator.html">계산기</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
   </header>
@@ -73,33 +73,6 @@
               <p>최근 12개월간 주요 은행권 금리 변동 추이 및 전망</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Calculator Section -->
-    <section id="calculator" class="page container">
-      <div class="calc-box">
-        <h2 class="section-title">간편 대출 계산기</h2>
-        <p class="calc-desc">월 상환액을 미리 계산해 보세요. (원리금균등상환 방식)</p>
-        <div class="form-grid">
-          <div class="input-group">
-            <label for="amount">대출 금액 (원)</label>
-            <input type="number" id="amount" placeholder="예: 10000000" step="10000">
-          </div>
-          <div class="input-group">
-            <label for="rate">연 이자율 (%)</label>
-            <input type="number" id="rate" placeholder="예: 3.5" step="0.1">
-          </div>
-          <div class="input-group">
-            <label for="period">대출 기간 (개월)</label>
-            <input type="number" id="period" placeholder="예: 12">
-          </div>
-        </div>
-        <button id="calcBtn" class="btn primary full-width">계산하기</button>
-        <div id="result" class="result-box hidden">
-          <p>예상 월 상환액: <strong id="monthlyPayment">0</strong>원</p>
-          <p>총 이자: <span id="totalInterest">0</span>원</p>
         </div>
       </div>
     </section>
