@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대출 공부 (입문) | BK Loan Assistant AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo"><a href="index.html">BK Loan Assistant AI</a></div>
+      <ul class="nav-menu">
+        <li><a href="intro.html" class="active-link">대출 공부 (입문)</a></li>
+        <li><a href="practice.html">대출 공부 (실무)</a></li>
+        <li><a href="index.html#references">참고자료</a></li>
+        <li><a href="index.html#calculator">계산기</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="study-intro" class="page container active">
+      <h2 class="section-title">대출 공부하기 (입문)</h2>
+      
+      <div class="section-header">
+        <h3>🌱 대출 입문: 첫걸음 떼기</h3>
+        <p>대출이 처음이신 분들을 위한 기초 가이드입니다.</p>
+      </div>
+
+      <div class="guide-grid">
+        <!-- 1. 기초 용어 -->
+        <div class="guide-card">
+          <div class="card-tag">STEP 01</div>
+          <h4>필수 용어 5분 완성</h4>
+          <ul class="content-list">
+            <li>• 원금과 이자의 차이</li>
+            <li>• 고정금리 vs 변동금리</li>
+            <li>• 거치기간과 상환기간</li>
+          </ul>
+        </div>
+
+        <!-- 2. 신용 점수 -->
+        <div class="guide-card">
+          <div class="card-tag">STEP 02</div>
+          <h4>내 한도를 결정하는 '신용'</h4>
+          <p>신용 점수가 왜 중요한지, 어떻게 1점이라도 더 올릴 수 있는지 관리 팁을 알아봅니다.</p>
+        </div>
+
+        <!-- 3. 대출의 종류 -->
+        <div class="guide-card">
+          <div class="card-tag">STEP 03</div>
+          <h4>나에게 맞는 대출 찾기</h4>
+          <p>신용대출, 담보대출, 전세자금대출 중 지금 나에게 가장 유리한 상품은 무엇일까요?</p>
+        </div>
+
+        <!-- 4. 주의사항 -->
+        <div class="guide-card border-warning">
+          <div class="card-tag warning">CHECK</div>
+          <h4>대출 전 꼭 체크하세요</h4>
+          <ul class="content-list">
+            <li>• 중도상환수수료 확인</li>
+            <li>• 부대비용(인지세 등) 계산</li>
+            <li>• 과도한 빚의 위험성</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="study-details mt-30">
+        <div class="info-box">
+          <h5>💡 입문자를 위한 Tip</h5>
+          <p>정부에서 지원하는 서민금융 상품(햇살론, 새희망홀씨 등)을 먼저 확인하는 것이 가장 현명한 시작입니다.</p>
+        </div>
+      </div>
+
+      <div class="page-nav-btns mt-50">
+        <a href="index.html" class="btn secondary">홈으로</a>
+        <a href="practice.html" class="btn primary">실무 과정 보러가기 →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Chatbot -->
+  <div id="chatbot-container" class="chatbot-container closed">
+    <div class="chatbot-header">
+      <div class="chatbot-title">💬 BK Loan Assistant AI</div>
+      <button id="chatbot-close" class="close-btn">&times;</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot">
+        <div class="bubble">안녕하세요! 궁금하신 점을 말씀해 주세요.</div>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="메시지 입력...">
+      <button id="send-btn" class="btn primary">전송</button>
+    </div>
+  </div>
+
+  <button id="chatbot-toggle" class="chatbot-toggle">
+    💬
+  </button>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="logo">BK Loan Assistant AI</div>
+      <p>&copy; 2026 BK Loan Assistant AI. All rights reserved.<br>본 사이트는 정보 제공용이며 실제 대출은 신중히 검토하시기 바랍니다.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

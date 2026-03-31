@@ -317,8 +317,166 @@ footer { padding: 60px 0; background-color: var(--white); border-top: 1px solid 
 footer .logo { margin-bottom: 12px; }
 footer p { font-size: 13px; color: var(--toss-gray-600); }
 
+/* Navigation */
+.nav-menu a.active-link {
+  color: var(--toss-blue);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 100px 20px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -1.5px;
+}
+
+.hero-section p {
+  font-size: 20px;
+  color: var(--toss-gray-600);
+  margin-bottom: 40px;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn.secondary {
+  background-color: var(--toss-gray-200);
+  color: var(--toss-gray-700);
+}
+
+.btn.secondary:hover { background-color: var(--toss-gray-100); }
+
+/* Main Features */
+.main-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 100px;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 24px;
+  text-align: left;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: var(--toss-gray-600);
+}
+
+/* Floating Chatbot */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: var(--toss-blue);
+  color: white;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 80, 255, 0.3);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 380px;
+  height: 550px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 1002;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: bottom right;
+  border: 1px solid var(--toss-gray-200);
+}
+
+.chatbot-container.closed {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.chatbot-header {
+  padding: 20px 24px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--toss-gray-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--toss-gray-600);
+  cursor: pointer;
+}
+
+.page-nav-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
-  .nav-menu { display: none; } /* 모바일은 나중에 햄버거 메뉴 추가 가능 */
-  .chat-wrapper { height: calc(100vh - 120px); border-radius: 0; margin-top: 0; border: none; }
-  .bubble { font-size: 15px; }
+  .hero-section h1 { font-size: 32px; }
+  .main-features { grid-template-columns: 1fr; }
+  .chatbot-container {
+    width: calc(100% - 40px);
+    right: 20px;
+    bottom: 90px;
+  }
 }

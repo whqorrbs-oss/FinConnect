@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대출 공부 (실무) | BK Loan Assistant AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo"><a href="index.html">BK Loan Assistant AI</a></div>
+      <ul class="nav-menu">
+        <li><a href="intro.html">대출 공부 (입문)</a></li>
+        <li><a href="practice.html" class="active-link">대출 공부 (실무)</a></li>
+        <li><a href="index.html#references">참고자료</a></li>
+        <li><a href="index.html#calculator">계산기</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="study-practice" class="page container active">
+      <h2 class="section-title">대출 공부하기 (실무)</h2>
+      
+      <div class="section-header">
+        <h3>🚀 실무 과정: 전문가로 거듭나기</h3>
+        <p>실제 대출 심사 현장에서 쓰이는 심화 지식입니다.</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="card-tag">ADVANCED</div>
+          <h4>DSR/LTV 심화 계산</h4>
+          <p>단순 계산을 넘어, 복합 대출 상황에서의 DSR 우회 전략과 LTV 산정 방식을 심층 분석합니다.</p>
+          <ul class="content-list">
+            <li>• 생애최초 주택구입자 LTV 완화</li>
+            <li>• DSR 산정 시 제외되는 대출 항목</li>
+          </ul>
+        </div>
+
+        <div class="guide-card">
+          <div class="card-tag">STRATEGY</div>
+          <h4>금리 우대 및 협상 전략</h4>
+          <p>은행별 부수거래(급여이체, 카드사용 등)를 최적화하여 최저 금리를 이끌어내는 방법을 알아봅니다.</p>
+        </div>
+
+        <div class="guide-card">
+          <div class="card-tag">CASE STUDY</div>
+          <h4>부결 사유 분석 및 대응</h4>
+          <p>실제 부결 사례를 통해 원인을 파악하고, 보완 서류나 대안 상품을 찾는 능력을 키웁니다.</p>
+        </div>
+      </div>
+
+      <div class="study-details mt-30">
+        <div class="info-box">
+          <h5>💡 실무자를 위한 Tip</h5>
+          <p>최근 변경된 스트레스 DSR 규정을 반드시 확인하세요. 대출 한도가 생각보다 줄어들 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="page-nav-btns mt-50">
+        <a href="intro.html" class="btn secondary">← 입문 과정 복습</a>
+        <a href="index.html" class="btn primary">홈으로</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Chatbot -->
+  <div id="chatbot-container" class="chatbot-container closed">
+    <div class="chatbot-header">
+      <div class="chatbot-title">💬 BK Loan Assistant AI</div>
+      <button id="chatbot-close" class="close-btn">&times;</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot">
+        <div class="bubble">안녕하세요! 궁금하신 점을 말씀해 주세요.</div>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="메시지 입력...">
+      <button id="send-btn" class="btn primary">전송</button>
+    </div>
+  </div>
+
+  <button id="chatbot-toggle" class="chatbot-toggle">
+    💬
+  </button>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="logo">BK Loan Assistant AI</div>
+      <p>&copy; 2026 BK Loan Assistant AI. All rights reserved.<br>본 사이트는 정보 제공용이며 실제 대출은 신중히 검토하시기 바랍니다.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
