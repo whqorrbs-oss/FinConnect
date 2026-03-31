@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BK Loan Assistant AI | 스마트 대출 도우미</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -24,6 +25,7 @@
         <li><a href="#references">참고자료</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="real-estate-calculator.html">부동산 계산기</a></li>
+        <li><a href="partnership.html">제휴 문의</a></li>
       </ul>
     </nav>
   </header>
@@ -40,35 +42,129 @@
         </div>
       </div>
       
-      <!-- Live Q&A and News Section -->
       <div class="container">
         <div class="community-section">
+          <!-- 만남의광장 -->
+          <div class="meeting-square">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <h3 style="font-size: 22px;">만남의광장</h3>
+                    <p style="font-size: 15px;">자유롭게 소통하고 정보를 나눠보세요.</p>
+                </div>
+                <button id="show-post-form-btn" class="btn secondary"><i class="fa-solid fa-pen-to-square"></i> 글쓰기</button>
+            </div>
+
+            <!-- 글쓰기 폼 (숨김) -->
+            <div id="post-form-container" class="post-input-box" style="display: none;">
+                <input type="text" id="nickname-input" placeholder="닉네임">
+                <input type="text" id="company-input" placeholder="소속(회사)">
+                <textarea id="post-content" placeholder="오늘의 이야기를 공유해 보세요..."></textarea>
+                <div class="form-buttons">
+                    <button id="cancel-post-btn" class="btn secondary">취소</button>
+                    <button id="post-button" class="btn primary">등록</button>
+                </div>
+            </div>
+
+            <!-- HOT Post -->
+            <div class="post-hot-section">
+                <div class="post-hot-title">🔥 HOT</div>
+                <div class="post-item is-hot">
+                    <div class="post-header">
+                        <span class="post-author">IBK기업은행 차장</span>
+                        <span class="post-time">1시간 전</span>
+                    </div>
+                    <p class="post-body">요즘 부동산 PF 관련해서 다들 분위기 어떤가요? 저희는 리스크 관리 때문에 신규 취급이 거의 막혔는데, 다른 곳은 어떤지 궁금하네요.</p>
+                    <div class="post-footer">
+                        <div class="vote-buttons">
+                            <button class="vote-btn" data-vote="helpful"><i class="fa-solid fa-thumbs-up"></i> 유용해요 <span class="vote-count">(25)</span></button>
+                            <button class="vote-btn" data-vote="relatable"><i class="fa-solid fa-handshake"></i> 공감돼요 <span class="vote-count">(18)</span></button>
+                        </div>
+                        <span class="post-views">조회수 1.2k</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post List -->
+            <div class="post-list-header">
+                <span>닉네임(소속)</span>
+                <span>제목</span>
+                <span>조회수</span>
+            </div>
+            <ul id="post-list" class="post-list">
+                 <li>
+                    <a href="#">
+                        <span class="post-author">우리은행 대리</span>
+                        <span class="post-title-text">신입 행원 교육 자료 공유합니다.</span>
+                        <span class="post-views-list">312</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="post-author">카카오뱅크 매니저</span>
+                        <span class="post-title-text">비대면 주담대 심사 시 주의할 점?</span>
+                        <span class="post-views-list">258</span>
+                    </a>
+                </li>
+            </ul>
+          </div>
+
           <!-- Live Q&A Board -->
           <div class="qna-board">
-            <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+            <div class="section-header">
               <h3 style="font-size: 22px;">실시간 Q&A</h3>
-              <p style="font-size: 15px;">대출 담당자들의 질문과 답변을 확인해 보세요.</p>
             </div>
-            <div class="qna-item">
-              <div class="qna-question">
-                <span class="qna-tag question">Q</span>
-                <p class="qna-text">스트레스 DSR 적용 시, 기존 대출의 만기도 소급 적용되나요?</p>
-              </div>
-              <div class="qna-answer">
-                <span class="qna-tag answer">A</span>
-                <p class="qna-text">아니요, 신규 대출에만 적용됩니다. 기존 대출은 약정 당시 조건이 유지됩니다.</p>
-              </div>
-              <span class="qna-meta">답변자: 우리은행 김대리 (3분 전)</span>
+
+            <!-- HOT Q&A -->
+            <div class="qna-hot-section">
+                <div class="qna-hot-title">🔥 HOT</div>
+                <div class="qna-item is-hot">
+                    <div class="qna-question">
+                        <span class="qna-tag question">Q</span>
+                        <p class="qna-text">스트레스 DSR 적용 시, 기존 대출의 만기도 소급 적용되나요?</p>
+                    </div>
+                    <div class="qna-answer">
+                        <span class="qna-tag answer">A</span>
+                        <p class="qna-text">아니요, 신규 대출에만 적용됩니다. 기존 대출은 약정 당시 조건이 유지됩니다.</p>
+                    </div>
+                    <div class="qna-meta">
+                        <span>답변자: 우리은행 김대리 (3분 전)</span>
+                        <div class="vote-buttons">
+                            <button class="vote-btn" data-vote="helpful"><i class="fa-solid fa-thumbs-up"></i> 도움이 되었어요 <span class="vote-count">(12)</span></button>
+                            <button class="vote-btn" data-vote="correct"><i class="fa-solid fa-check"></i> 맞아요 <span class="vote-count">(5)</span></button>
+                            <button class="vote-btn" data-vote="incorrect"><i class="fa-solid fa-xmark"></i> 틀렸어요 <span class="vote-count">(1)</span></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="qna-item">
-              <div class="qna-question">
-                <span class="qna-tag question">Q</span>
-                <p class="qna-text">2주택자도 생애최초 LTV 완화가 가능한가요?</p>
-              </div>
+
+            <!-- Q&A List -->
+            <div class="qna-list-header">
+                <span>닉네임(소속)</span>
+                <span>제목</span>
             </div>
+            <ul class="qna-list">
+                <li>
+                    <a href="#">
+                        <span class="qna-author">하나은행 박과장</span>
+                        <span class="qna-title-text">2주택자도 생애최초 LTV 완화가 가능한가요?</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="qna-author">신한은행 이대리</span>
+                        <span class="qna-title-text">전세자금대출의 소득 증빙은 어떻게 하나요?</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#">
+                        <span class="qna-author">국민은행 최차장</span>
+                        <span class="qna-title-text">법인 사업자 대출 시 필요한 서류가 궁금합니다.</span>
+                    </a>
+                </li>
+            </ul>
             <div class="qna-input-box">
               <input type="text" placeholder="질문을 입력해 보세요...">
-              <button class="btn primary">등록</button>
+              <button class="btn primary">질문 등록</button>
             </div>
           </div>
 
@@ -86,94 +182,10 @@
           </div>
         </div>
       </div>
-
-      <div class="container mt-100">
-        <div class="main-features">
-          <div class="feature-card">
-            <span class="feature-icon">🌱</span>
-            <h3>기초부터 탄탄하게</h3>
-            <p>대출이 처음인 분들을 위한 필수 용어와 신용 관리 팁을 제공합니다.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-icon">🚀</span>
-            <h3>실무 역량 강화</h3>
-            <p>DSR/LTV 계산 및 은행권 우대 금리 전략 등 실전 노하우를 공개합니다.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-icon">🤖</span>
-            <h3>24/7 AI 챗봇</h3>
-            <p>궁금한 점은 언제든 우측 하단의 챗봇에게 물어보세요.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Reference Materials Section -->
-    <section id="references" class="page bg-gray">
-      <div class="container">
-        <h2 class="section-title">참고자료</h2>
-        <div class="ref-list">
-          <div class="ref-item">
-            <span class="icon">📄</span>
-            <div>
-              <h5>2024 대출 규제 안내서 (PDF)</h5>
-              <p>금융감독원 발행 최신 대출 규제 및 정책 방향 요약본</p>
-            </div>
-          </div>
-          <div class="ref-item">
-            <span class="icon">📊</span>
-            <div>
-              <h5>금리 변동 추이 보고서</h5>
-              <p>최근 12개월간 주요 은행권 금리 변동 추이 및 전망</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="page container">
-      <h2 class="section-title">자주 묻는 질문</h2>
-      <div class="faq-list">
-        <details>
-          <summary>DSR이란 무엇인가요?</summary>
-          <p>DSR(Debt Service Ratio, 총부채원리금상환비율)은 연간 소득 대비 모든 가계대출 원리금 상환액이 차지하는 비율을 말합니다.</p>
-        </details>
-        <details>
-          <summary>중도 상환 수수료가 뭔가요?</summary>
-          <p>정해진 상환 기간보다 일찍 대출금을 갚을 때 금융기관에 지불하는 일종의 수수료입니다.</p>
-        </details>
-      </div>
     </section>
   </main>
 
-  <!-- Floating Chatbot -->
-  <div id="chatbot-container" class="chatbot-container closed">
-    <div class="chatbot-header">
-      <div class="chatbot-title">💬 BK Loan Assistant AI</div>
-      <button id="chatbot-close" class="close-btn">&times;</button>
-    </div>
-    <div id="chat-messages" class="chat-messages">
-      <div class="message bot">
-        <div class="bubble">안녕하세요! 궁금하신 점을 말씀해 주세요.</div>
-      </div>
-    </div>
-    <div class="chat-input-area">
-      <input type="text" id="chat-input" placeholder="메시지 입력...">
-      <button id="send-btn" class="btn primary">전송</button>
-    </div>
-  </div>
-
-  <button id="chatbot-toggle" class="chatbot-toggle">
-    💬
-  </button>
-
-  <footer>
-    <div class="container footer-content">
-      <div class="logo">BK Loan Assistant AI</div>
-      <p>&copy; 2026 BK Loan Assistant AI. All rights reserved.<br>본 사이트는 정보 제공용이며 실제 대출은 신중히 검토하시기 바랍니다.</p>
-    </div>
-  </footer>
+  <!-- Floating Chatbot and Footer -->
 
   <script src="main.js"></script>
 </body>

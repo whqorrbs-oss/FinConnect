@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제휴 문의 | BK Loan Assistant AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo"><a href="index.html">BK Loan Assistant AI</a></div>
+      <ul class="nav-menu">
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="nav-link">대출 공부</a>
+          <div class="dropdown-content">
+            <a href="intro.html">입문</a>
+            <a href="practice.html">실무</a>
+          </div>
+        </li>
+        <li><a href="index.html#references">참고자료</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="real-estate-calculator.html">부동산 계산기</a></li>
+        <li><a href="partnership.html">제휴 문의</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="partnership-form" class="page active">
+      <div class="container">
+        <h2 class="section-title">제휴 문의</h2>
+        <div class="calc-box">
+          <form id="contact-form" action="https://formspree.io/f/xqegpaqn" method="POST">
+            <div class="input-group">
+              <label for="name">이름</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+              <label for="email">이메일</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+              <label for="company">회사</label>
+              <input type="text" id="company" name="company">
+            </div>
+            <div class="input-group">
+              <label for="message">문의 내용</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn primary" style="width: 100%;">문의 제출</button>
+          </form>
+          <div id="form-status"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="logo">BK Loan Assistant AI</div>
+      <p>&copy; 2026 BK Loan Assistant AI. All rights reserved.<br>본 사이트는 정보 제공용이며 실제 대출은 신중히 검토하시기 바랍니다.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
