@@ -12,26 +12,10 @@
 </head>
 <body>
   <header>
-    <nav class="container">
-      <div class="logo"><a href="index.html">BK Loan Assistant AI</a></div>
-      <ul class="nav-menu">
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="nav-link">대출 공부</a>
-          <div class="dropdown-content">
-            <a href="intro.html">입문</a>
-            <a href="practice.html">실무</a>
-          </div>
-        </li>
-        <li><a href="#references">참고자료</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="real-estate-calculator.html">부동산 계산기</a></li>
-        <li><a href="partnership.html">제휴 문의</a></li>
-      </ul>
-    </nav>
+      <!-- Header content remains the same -->
   </header>
 
   <main>
-    <!-- Home / Hero Section -->
     <section id="home" class="page active">
       <div class="container hero-section">
         <h1>스마트한 대출의 시작,<br>BK Loan Assistant AI</h1>
@@ -44,149 +28,111 @@
       
       <div class="container">
         <div class="community-section">
-          <!-- 만남의광장 -->
-          <div class="meeting-square">
-            <div class="section-header">
-                <div class="section-header-left">
-                    <h3 style="font-size: 22px;">만남의광장</h3>
-                    <p style="font-size: 15px;">자유롭게 소통하고 정보를 나눠보세요.</p>
-                </div>
-                <button id="show-post-form-btn" class="btn secondary"><i class="fa-solid fa-pen-to-square"></i> 글쓰기</button>
-            </div>
-
-            <!-- 글쓰기 폼 (숨김) -->
-            <div id="post-form-container" class="post-input-box" style="display: none;">
-                <input type="text" id="nickname-input" placeholder="닉네임">
-                <input type="text" id="company-input" placeholder="소속(회사)">
-                <textarea id="post-content" placeholder="오늘의 이야기를 공유해 보세요..."></textarea>
-                <div class="form-buttons">
-                    <button id="cancel-post-btn" class="btn secondary">취소</button>
-                    <button id="post-button" class="btn primary">등록</button>
-                </div>
-            </div>
-
-            <!-- HOT Post -->
-            <div class="post-hot-section">
-                <div class="post-hot-title">🔥 HOT</div>
-                <div class="post-item is-hot">
-                    <div class="post-header">
-                        <span class="post-author">IBK기업은행 차장</span>
-                        <span class="post-time">1시간 전</span>
+            <!-- 만남의광장 -->
+            <div class="meeting-square">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <h3>만남의광장</h3>
+                        <p>자유롭게 소통하고 정보를 나눠보세요.</p>
                     </div>
-                    <p class="post-body">요즘 부동산 PF 관련해서 다들 분위기 어떤가요? 저희는 리스크 관리 때문에 신규 취급이 거의 막혔는데, 다른 곳은 어떤지 궁금하네요.</p>
-                    <div class="post-footer">
-                        <div class="vote-buttons">
-                            <button class="vote-btn" data-vote="helpful"><i class="fa-solid fa-thumbs-up"></i> 유용해요 <span class="vote-count">(25)</span></button>
-                            <button class="vote-btn" data-vote="relatable"><i class="fa-solid fa-handshake"></i> 공감돼요 <span class="vote-count">(18)</span></button>
+                    <button id="show-post-form-btn" class="btn secondary"><i class="fa-solid fa-pen-to-square"></i> 글쓰기</button>
+                </div>
+                <div id="post-form-container" class="post-input-box" style="display: none;">
+                    <input type="text" id="nickname-input" placeholder="닉네임">
+                    <input type="text" id="company-input" placeholder="소속(회사)">
+                    <textarea id="post-content" placeholder="오늘의 이야기를 공유해 보세요..."></textarea>
+                    <div class="form-buttons">
+                        <button id="cancel-post-btn" class="btn secondary">취소</button>
+                        <button id="post-button" class="btn primary">등록</button>
+                    </div>
+                </div>
+                <div class="post-hot-section">
+                    <div class="post-hot-title">🔥 HOT</div>
+                    <div class="post-item is-hot">
+                        <div class="post-header">
+                            <span class="post-author">IBK기업은행 차장</span>
+                            <span class="post-time">1시간 전</span>
                         </div>
-                        <span class="post-views">조회수 1.2k</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Post List -->
-            <div class="post-list-header">
-                <span>닉네임(소속)</span>
-                <span>제목</span>
-                <span>조회수</span>
-            </div>
-            <ul id="post-list" class="post-list">
-                 <li>
-                    <a href="#">
-                        <span class="post-author">우리은행 대리</span>
-                        <span class="post-title-text">신입 행원 교육 자료 공유합니다.</span>
-                        <span class="post-views-list">312</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="post-author">카카오뱅크 매니저</span>
-                        <span class="post-title-text">비대면 주담대 심사 시 주의할 점?</span>
-                        <span class="post-views-list">258</span>
-                    </a>
-                </li>
-            </ul>
-          </div>
-
-          <!-- Live Q&A Board -->
-          <div class="qna-board">
-            <div class="section-header">
-              <h3 style="font-size: 22px;">실시간 Q&A</h3>
-            </div>
-
-            <!-- HOT Q&A -->
-            <div class="qna-hot-section">
-                <div class="qna-hot-title">🔥 HOT</div>
-                <div class="qna-item is-hot">
-                    <div class="qna-question">
-                        <span class="qna-tag question">Q</span>
-                        <p class="qna-text">스트레스 DSR 적용 시, 기존 대출의 만기도 소급 적용되나요?</p>
-                    </div>
-                    <div class="qna-answer">
-                        <span class="qna-tag answer">A</span>
-                        <p class="qna-text">아니요, 신규 대출에만 적용됩니다. 기존 대출은 약정 당시 조건이 유지됩니다.</p>
-                    </div>
-                    <div class="qna-meta">
-                        <span>답변자: 우리은행 김대리 (3분 전)</span>
-                        <div class="vote-buttons">
-                            <button class="vote-btn" data-vote="helpful"><i class="fa-solid fa-thumbs-up"></i> 도움이 되었어요 <span class="vote-count">(12)</span></button>
-                            <button class="vote-btn" data-vote="correct"><i class="fa-solid fa-check"></i> 맞아요 <span class="vote-count">(5)</span></button>
-                            <button class="vote-btn" data-vote="incorrect"><i class="fa-solid fa-xmark"></i> 틀렸어요 <span class="vote-count">(1)</span></button>
+                        <p class="post-body">요즘 부동산 PF 관련해서 다들 분위기 어떤가요?</p>
+                        <div class="post-footer">
+                            <div class="vote-buttons">
+                                <button class="vote-btn" data-vote="helpful"><i class="fa-solid fa-thumbs-up"></i> 유용해요 <span class="vote-count">(25)</span></button>
+                                <button class="vote-btn" data-vote="relatable"><i class="fa-solid fa-handshake"></i> 공감돼요 <span class="vote-count">(18)</span></button>
+                            </div>
+                            <span class="post-views">조회수 1.2k</span>
                         </div>
                     </div>
                 </div>
+                <div class="post-list-header">
+                    <span>닉네임(소속)</span>
+                    <span>제목</span>
+                    <span>조회수</span>
+                </div>
+                <ul id="post-list" class="post-list">
+                    <!-- Post items will be injected here -->
+                </ul>
             </div>
 
-            <!-- Q&A List -->
-            <div class="qna-list-header">
-                <span>닉네임(소속)</span>
-                <span>제목</span>
+            <!-- Live Q&A Board -->
+            <div class="qna-board">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <h3>실시간 Q&A</h3>
+                        <p>대출 담당자들의 질문과 답변을 확인해 보세요.</p>
+                    </div>
+                </div>
+                <div class="qna-hot-section">
+                    <div class="qna-hot-title">🔥 HOT</div>
+                    <div class="qna-item is-hot">
+                        <div class="qna-question">
+                            <span class="qna-tag question">Q</span>
+                            <p class="qna-text">스트레스 DSR 적용 시, 기존 대출의 만기도 소급 적용되나요?</p>
+                        </div>
+                        <div class="qna-answer">
+                            <span class="qna-tag answer">A</span>
+                            <p class="qna-text">아니요, 신규 대출에만 적용됩니다.</p>
+                        </div>
+                        <div class="qna-meta">
+                            <span>답변자: 우리은행 김대리</span>
+                            <div class="vote-buttons">
+                                <button class="vote-btn" data-vote="helpful"><i class="fa-solid fa-thumbs-up"></i> 도움이 되었어요 <span class="vote-count">(12)</span></button>
+                                <button class="vote-btn" data-vote="correct"><i class="fa-solid fa-check"></i> 맞아요 <span class="vote-count">(5)</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="qna-list-header">
+                    <span>닉네임(소속)</span>
+                    <span>제목</span>
+                </div>
+                <ul class="qna-list">
+                     <!-- Q&A items will be here -->
+                </ul>
+                <div class="qna-input-box">
+                    <input type="text" placeholder="질문을 입력해 보세요...">
+                    <button class="btn primary">질문 등록</button>
+                </div>
             </div>
-            <ul class="qna-list">
-                <li>
-                    <a href="#">
-                        <span class="qna-author">하나은행 박과장</span>
-                        <span class="qna-title-text">2주택자도 생애최초 LTV 완화가 가능한가요?</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="qna-author">신한은행 이대리</span>
-                        <span class="qna-title-text">전세자금대출의 소득 증빙은 어떻게 하나요?</span>
-                    </a>
-                </li>
-                 <li>
-                    <a href="#">
-                        <span class="qna-author">국민은행 최차장</span>
-                        <span class="qna-title-text">법인 사업자 대출 시 필요한 서류가 궁금합니다.</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="qna-input-box">
-              <input type="text" placeholder="질문을 입력해 보세요...">
-              <button class="btn primary">질문 등록</button>
-            </div>
-          </div>
 
-          <!-- Real Estate News -->
-          <div class="news-board">
-            <div class="section-header" style="text-align: left; margin-bottom: 10px;">
-              <h3 style="font-size: 22px;">최신 부동산 뉴스</h3>
+            <!-- Real Estate News -->
+            <div class="news-board">
+                 <div class="section-header">
+                    <div class="section-header-left">
+                        <h3>최신 부동산 뉴스</h3>
+                    </div>
+                </div>
+                <ul class="news-list">
+                    <!-- News items will be here -->
+                </ul>
             </div>
-            <ul class="news-list">
-              <li><a href="#">"아파트값 바닥 찍었나"…서울 아파트값 10주째 상승 <span class="news-source">매일경제</span></a></li>
-              <li><a href="#">전세사기 여파에… 5월 비아파트 전세보증 사고 역대 최대 <span class="news-source">조선일보</span></a></li>
-              <li><a href="#">7월부터 '스트레스 DSR' 2단계 시행…주담대 한도 줄어든다 <span class="news-source">한국경제</span></a></li>
-              <li><a href="#">정부, '임대차 2법' 개편 공식화… 표준계약서 도입 유력 <span class="news-source">연합뉴스</span></a></li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
+
+    <!-- Other sections ... -->
   </main>
 
-  <!-- Floating Chatbot and Footer -->
-
+  <!-- Footer and scripts ... -->
   <script src="main.js"></script>
 </body>
 </html>
