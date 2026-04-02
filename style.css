@@ -98,7 +98,18 @@ nav {
   border-radius: 12px;
   padding: 8px 0;
   border: 1px solid var(--toss-gray-200);
-  margin-top: 10px;
+  /* Remove margin-top to eliminate the gap */
+  margin-top: 0; 
+}
+
+/* Ensure a safe area for hover */
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
 }
 
 .dropdown-content a {
@@ -111,6 +122,31 @@ nav {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Compact HOT Section */
+.post-hot-section-compact {
+  background-color: var(--toss-blue-light);
+  border-radius: 12px;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.post-hot-tag {
+  color: var(--toss-blue);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.post-hot-content {
+  color: var(--toss-gray-800);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Buttons */
