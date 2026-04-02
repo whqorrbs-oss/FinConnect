@@ -28,11 +28,11 @@
       
       <div class="container">
         <div class="community-section">
-            <!-- 만남의광장 -->
+            <!-- 만남의 광장 -->
             <div class="meeting-square">
                 <div class="section-header">
                     <div class="section-header-left">
-                        <h3>만남의광장</h3>
+                        <h3>만남의 광장</h3>
                         <p>자유롭게 소통하고 정보를 나눠보세요.</p>
                     </div>
                     <button id="show-post-form-btn" class="btn secondary"><i class="fa-solid fa-pen-to-square"></i> 글쓰기</button>
@@ -49,15 +49,12 @@
                 <div class="post-hot-section">
                     <div class="post-hot-title">🔥 HOT</div>
                     <div class="post-item is-hot">
-                        <div class="post-header">
-                            <span class="post-author">IBK기업은행 차장</span>
-                            <span class="post-time">1시간 전</span>
-                        </div>
                         <p class="post-body">요즘 부동산 PF 관련해서 다들 분위기 어떤가요?</p>
                         <div class="post-footer">
                             <div class="vote-buttons">
                                 <button class="vote-btn" data-vote="helpful"><i class="fa-solid fa-thumbs-up"></i> 유용해요 <span class="vote-count">(25)</span></button>
-                                <button class="vote-btn" data-vote="relatable"><i class="fa-solid fa-handshake"></i> 공감돼요 <span class="vote-count">(18)</span></button>
+                                <button class="vote-btn" data-vote="like"><i class="fa-solid fa-heart"></i> 좋아요 <span class="vote-count">(18)</span></button>
+                                <button class="vote-btn" data-vote="dislike"><i class="fa-solid fa-thumbs-down"></i> 싫어요 <span class="vote-count">(3)</span></button>
                             </div>
                             <span class="post-views">조회수 1.2k</span>
                         </div>
@@ -131,6 +128,29 @@
 
     <!-- Other sections ... -->
   </main>
+
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item dropdown">
+      <i class="fas fa-comments"></i>
+      <span>게시판</span>
+      <div class="bottom-dropdown-content">
+        <a href="#">만남의 광장</a>
+        <a href="#">실시간 Q&A</a>
+      </div>
+    </a>
+    <a href="index.html" class="nav-item active">
+      <i class="fas fa-home"></i>
+      <span>홈</span>
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-newspaper"></i>
+      <span>부동산뉴스</span>
+    </a>
+    <a href="real-estate-calculator.html" class="nav-item">
+      <i class="fas fa-calculator"></i>
+      <span>계산기</span>
+    </a>
+  </nav>
 
   <!-- Footer and scripts ... -->
   <script src="main.js"></script>
